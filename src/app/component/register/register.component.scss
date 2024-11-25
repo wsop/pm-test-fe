@@ -1,0 +1,16 @@
+.register-container {
+  display: flex;
+  justify-content: center; /* Горизонтальное центрирование */
+  align-items: center; /* Вертикальное центрирование */
+}
+
+mat-card {
+  width: 100%;
+  max-width: 400px; /* Ограничиваем ширину карточки */
+  padding: 24px;
+  box-shadow: var(--mat-elevation-z8);
+}
+
+mat-card-title{
+  margin-bottom: 16px;
+}

@@ -1,0 +1,30 @@
+<form [formGroup]="step2Form">
+  <mat-form-field>
+    <mat-label>Country</mat-label>
+    <mat-select formControlName="country" (selectionChange)="loadCities($event.value)">
+      <mat-option *ngFor="let country of countries" [value]="country.id">
+        {{ country.name }}
+      </mat-option>
+    </mat-select>
+    <mat-error *ngIf="step2Form.get('country')?.invalid">
+      Select country
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Province</mat-label>
+    <mat-select formControlName="city">
+      <mat-option *ngFor="let city of cities" [value]="city.id">
+        {{ city.name }}
+      </mat-option>
+    </mat-select>
+    <mat-error *ngIf="step2Form.get('city')?.invalid">
+      Select province
+    </mat-error>
+  </mat-form-field>
+
+  <div class="button-container">
+    <button mat-flat-button type="button" (click)="save()"> Save</button>
+  </div>
+
+</form>

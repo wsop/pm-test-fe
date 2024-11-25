@@ -1,0 +1,19 @@
+<div class="register-container">
+<mat-card class="register-container" appearance="outlined">
+  <mat-card-header>
+    <mat-card-title>
+      {{ "Step" + currentStep }}
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <ng-container *ngIf="currentStep === 1">
+      <app-step1 (submit)="step1submit($event)"></app-step1> <!-- Первый шаг -->
+    </ng-container>
+    <ng-container *ngIf="currentStep === 2">
+      <app-step2 (submit)="step2submit($event)"></app-step2> <!-- Второй шаг -->
+    </ng-container>
+  </mat-card-content>
+  <mat-card-actions class="actions">
+  </mat-card-actions>
+</mat-card>
+</div>

@@ -1,0 +1,19 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
+}
+
+mat-form-field {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+
+.button-container {
+  display: flex;            /* Используем Flexbox */
+  justify-content: center;  /* Горизонтальное центрирование */
+  margin-top: 16px;         /* Отступ сверху для кнопки */
+}
+

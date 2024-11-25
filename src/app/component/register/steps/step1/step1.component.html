@@ -1,0 +1,56 @@
+<form [formGroup]="step1Form" >
+  <mat-form-field>
+    <mat-label>Login</mat-label>
+    <input matInput formControlName="username"/>
+    <mat-error *ngIf="hasErrors && step1Form.get('username')?.hasError('required')">
+      Login required.
+    </mat-error>
+    <mat-error *ngIf="hasErrors && step1Form.get('username')?.hasError('email')">
+      Incorrect email.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Password</mat-label>
+    <input matInput type="password" formControlName="password"/>
+
+    <mat-error *ngIf="hasErrors && step1Form.get('password')?.hasError('required')">
+      Password required.
+    </mat-error>
+
+    <mat-error *ngIf="hasErrors && step1Form.get('password')?.hasError('pattern')">
+      The password must contain at least one number and one letter.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-error *ngIf="hasErrors && step1Form?.hasError('notMatching')">
+    Passwords must match.
+  </mat-error>
+
+  <mat-form-field>
+    <mat-label>Repeat password</mat-label>
+    <input matInput type="password" formControlName="confirmPassword"/>
+
+    <mat-error *ngIf="hasErrors && step1Form.get('confirmPassword')?.hasError('required')">
+      Password confirmation is required.
+    </mat-error>
+
+  </mat-form-field>
+
+  <mat-error *ngIf="hasErrors && step1Form?.hasError('notMatching')">
+    Passwords must match.
+  </mat-error>
+
+  <div>
+    <mat-checkbox formControlName="agree">Agree to work for food</mat-checkbox>
+
+    <mat-error *ngIf="hasErrors && step1Form.get('agree')?.hasError('required')">
+      You must agree to the terms.
+    </mat-error>
+  </div>
+
+  <div class="button-container">
+    <button mat-flat-button type="button" (click)="goToStep2()"> Go to step 2</button>
+  </div>
+
+</form>
